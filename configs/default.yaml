@@ -1,0 +1,43 @@
+project:
+  name: "ca_robot"
+  random_seed: 123
+
+paths:
+  output_root: "outputs"
+  model_dir: "models"
+
+experiment:
+  initial_state: "0001000"
+  num_generations: 100
+  rules_start: 0
+  rules_end: 255
+  initial_x: 0
+  initial_y: 0
+
+barrier:
+  barrier_generation: 49
+  barrier_extend: 20
+  barrier_angle: 90
+  extra_generations: 0
+  barrier_modes:
+    - easy
+
+random_controls:
+  sources:
+    - shuffle
+    - white_noise
+  variants_per_rule: 4
+
+movement_classifier:
+  min_after_points: 25
+  loop_threshold: 0.1
+  workers: 1
+
+minigrid:
+  enabled: true
+  episodes: 100
+  max_steps: 256
+  sources:
+    - ca
+    - shuffle
+    - white_noise

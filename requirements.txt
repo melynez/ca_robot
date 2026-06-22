@@ -1,0 +1,11 @@
+numpy 
+pandas 
+matplotlib 
+scipy 
+scikit-learn 
+joblib 
+tqdm 
+seaborn 
+gymnasium 
+minigrid 
+pyyaml 
