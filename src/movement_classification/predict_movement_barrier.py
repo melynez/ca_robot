@@ -1,21 +1,3 @@
-"""
-Applies the trained RF to *barrier* trajectories with a pre/post analysis:
-- "before" = first 50 points
-- "after"  = last 50 points
-- Skip n_total < 75 (extinction/too short)
-- Flag 75 <= n_total < 100 as PARTIAL_75_99 (windows overlap)
-- Detect "looping" in the after segment (cycling among 2–3 points); if loop, skip ML
-- For valid runs, compute 40 preregistered features for both segments, scale, predict,
-  and compare labels/probabilities:
-    • did class change?
-    • how strong was the original label before vs after?
-    • probability deltas, entropy, margin, JS divergence, L1/2
-- Saves per-segment predictions, per-rule summary, transition matrices, counts/stats,
-  and a manifest.
-
-Windows-safe: defaults to --workers 1; all helpers are top-level.
-"""
-
 import os, re, math, json, time, argparse, warnings, hashlib
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
