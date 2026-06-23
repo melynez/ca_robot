@@ -1,17 +1,3 @@
-"""
-Predict movement-type labels for original empty world CAR trajectories.
-
-Outputs in --out_dir:
-  - full_features_raw.csv
-  - full_features_norm.csv
-  - full_predictions.csv   (per-class probs, plus pred & pred_conf)
-  - full_pred_counts.csv
-  - errors.csv             (files that failed to parse or were too short)
-  - run.json               (manifest)
-
-No aliasing: 0001000 is not used or mapped. Windows-friendly; defaults to --workers 1.
-"""
-
 import os, re, math, json, time, argparse, warnings
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor, as_completed
